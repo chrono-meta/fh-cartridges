@@ -1,0 +1,13 @@
+schema_version: 1
+plugin: cart-serialcanon
+load:
+  entry: [skills/serial-flow/SKILL.md]
+  extra: [skills/serial-floor-check/SKILL.md, skills/serial-coldread/SKILL.md]
+constraints:
+  approval: ask
+  writes: write-local
+  reversibility: reversible
+  residency: public
+purpose: "Serial fiction kept consistent with a typed canon: one batched intake, open decisions with deadlines, a foreshadowing ledger, and a schema-driven floor checker with a selftest"
+intents: ["help me plan my serial", "set up the canon for my story", "check episode 8 against my canon", "what do I still have to decide before the next episode?"]
+kind: activity

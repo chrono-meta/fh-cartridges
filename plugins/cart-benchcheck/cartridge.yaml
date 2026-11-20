@@ -1,0 +1,12 @@
+schema_version: 1
+plugin: cart-benchcheck
+load:
+  entry: [skills/benchcheck/SKILL.md]
+constraints:
+  approval: ask
+  writes: write-local
+  reversibility: reversible
+  residency: public
+purpose: "Performance claims decided by a statistics script (IQR outliers, Mann-Whitney U, benchstat-style ~); the model reports only the verdict and never fills in missing runs"
+intents: ["is it faster now", "did this optimisation help", "compare these benchmark runs"]
+kind: activity

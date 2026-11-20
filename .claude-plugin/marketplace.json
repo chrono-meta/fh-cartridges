@@ -1,0 +1,11 @@
+{
+  "name": "fh-cartridges",
+  "owner": { "name": "chrono-meta" },
+  "metadata": { "description": "Capability cartridges for Claude Code: each one puts a script where a bare model was measured to fail" },
+  "plugins": [
+    { "name": "cart-ocr", "source": "./plugins/cart-ocr", "description": "Document OCR with machine checks — sum row, calibrated Apple Vision cross-read, look-alike flags, per-field status", "version": "0.2.0" },
+    { "name": "cart-serialcanon", "source": "./plugins/cart-serialcanon", "description": "Serial fiction kept consistent with a typed canon — open decisions with deadlines, foreshadowing ledger, schema-driven floor checker", "version": "0.1.1" },
+    { "name": "cart-benchcheck", "source": "./plugins/cart-benchcheck", "description": "Before/after benchmark claims decided by a statistics script — Mann-Whitney U, ~ for no change", "version": "0.1.0" },
+    { "name": "cart-winport", "source": "./plugins/cart-winport", "description": "Windows portability of Python scripts — pinned machine paths and locale-codec I/O, plus a relocated run under the cp949 locale", "version": "0.1.0" }
+  ]
+}

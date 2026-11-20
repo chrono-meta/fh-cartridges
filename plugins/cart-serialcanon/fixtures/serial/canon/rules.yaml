@@ -1,0 +1,2 @@
+forbid:
+  - {id: bea-right-hand, pattern: "Bea Sorrel[^.]*right hand", why: "Bea lost the use of her right hand (glossary attrs)"}

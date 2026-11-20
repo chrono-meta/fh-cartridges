@@ -1,0 +1,16 @@
+# Selftest fixture for canon_check.py — an invented serial, written for this cartridge. Every lane is green here.
+meta:
+  title: "The Hollin Mill"
+  total_episodes: 12
+  turn: 4            # the episode where Bea learns who owns the mill (anchor: must equal outline.turn)
+glossary:
+  - {name: Bea Sorrel, kind: person, first_used: 1, attrs: ["lost the use of her right hand as a child"]}
+  - {name: Tom Haddow, kind: person, first_used: 1}
+  - {name: Hollin, kind: place, first_used: 1}
+  - {name: Larkspur Mill, kind: place, first_used: 2}
+  - {name: the Weir, kind: place, first_used: 3}
+  - {name: Old Mags, kind: person, first_used: 5}
+  - {name: Rufus Tarrant, kind: person, first_used: 7}
+decisions:
+  - {id: Q1, question: "Does Tom sell the mill?", decide_by: 10, resolved: false}
+  - {id: Q2, question: "Who owns the mill?", decide_by: 4, resolved: true, resolved_at: 4}

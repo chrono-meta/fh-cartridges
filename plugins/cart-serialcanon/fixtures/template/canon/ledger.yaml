@@ -1,0 +1,3 @@
+foreshadowing:                 # every set-up the reader should see paid off
+  # - {id: F1, item: "…", planted_at: 1, payoff_by: 6, status: open}
+  # - {id: F2, item: "…", planted_at: 2, payoff_by: 5, status: fired, fired_at: 4}

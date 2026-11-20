@@ -1,0 +1,3 @@
+forbid:                        # author constraints a script can see: a pattern that must never appear
+  # - {id: no-modern-slang, pattern: "\\b(okay|OK)\\b", why: "period voice"}
+  # - {id: hand, pattern: "Full Name[^.]*right hand", why: "lost the right hand (glossary attrs)", from: 4}

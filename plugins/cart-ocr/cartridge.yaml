@@ -1,0 +1,12 @@
+schema_version: 1
+plugin: cart-ocr
+load:
+  entry: [skills/ocr/SKILL.md]
+constraints:
+  approval: auto
+  writes: write-local
+  reversibility: reversible
+  residency: operator-private
+purpose: "Text and tables read from scans, photos and screenshots of documents, checked by scripts — sum row, a calibrated second OCR engine (Apple Vision), look-alike characters — so every field carries VERIFIED / DISAGREE / AMBIGUOUS / UNREADABLE / UNCHECKED"
+intents: ["OCR this scan", "extract the table from this receipt photo", "what is the total on this receipt?"]
+kind: activity

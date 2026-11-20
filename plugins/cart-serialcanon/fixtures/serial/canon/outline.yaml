@@ -1,0 +1,26 @@
+turn: 4
+arcs:
+  - id: arc1
+    episodes: "1-4"
+    status: LOCKED
+    list:
+      - {ep: 1, title: "Flour Dust"}
+      - {ep: 2, title: "The Sluice"}
+      - {ep: 3, title: "The Weir"}
+      - {ep: 4, title: "Deeds"}
+  - id: arc2
+    episodes: "5-8"
+    status: PROPOSED
+    list:
+      - {ep: 5, title: "Old Mags"}
+      - {ep: 6, title: "Lantern"}
+      - {ep: 7, title: "The Buyer"}
+      - {ep: 8, title: "Flood Warning"}
+  - id: arc3
+    episodes: "9-12"
+    status: PROPOSED
+    list:
+      - {ep: 9, title: "High Water"}
+      - {ep: 10, title: "Sale"}
+      - {ep: 11, title: "The Key"}
+      - {ep: 12, title: "Last Grinding"}

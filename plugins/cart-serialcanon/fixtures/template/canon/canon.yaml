@@ -1,0 +1,10 @@
+# Canon template — copy this folder to your serial's root. Every field below is read by scripts/canon_check.py.
+# Where a field lives can be changed in canon/schema.yaml (see the README); the names here are the defaults.
+meta:
+  title: "TITLE"
+  total_episodes: 0            # planned episodes; the outline's arcs must cover 1..this with no gap
+glossary:                      # EVERY proper noun an episode uses: people, places, groups, named objects
+  # - {name: "Full Name", kind: person, first_used: 1, aliases: ["Nickname"], attrs: ["facts later episodes must respect"]}
+decisions:                     # what the author has NOT decided yet. Never decide these in a draft — ask.
+  # - {id: Q1, question: "…?", decide_by: 5, resolved: false}       # decide_by = must be settled before writing ep 5
+  # - {id: Q2, question: "…?", decide_by: 3, resolved: true, resolved_at: 2}

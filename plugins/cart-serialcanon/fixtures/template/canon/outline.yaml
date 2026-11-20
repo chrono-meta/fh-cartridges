@@ -1,0 +1,6 @@
+arcs:                          # status LOCKED = every episode in the range is written and approved
+  # - id: arc1
+  #   episodes: "1-4"
+  #   status: PROPOSED
+  #   list:
+  #     - {ep: 1, title: "…", beats: "what happens; which decisions stay open (e.g. Q1 stays open)"}

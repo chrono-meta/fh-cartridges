@@ -1,0 +1,1 @@
+{ "name": "cart-benchcheck", "version": "0.1.0", "description": "Before/after benchmark claims decided by a script (Mann-Whitney U, IQR outliers, ~ for no change); prose only from the verdict" }

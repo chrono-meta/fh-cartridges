@@ -1,0 +1,12 @@
+schema_version: 1
+plugin: cart-winport
+load:
+  entry: [skills/winport/SKILL.md]
+constraints:
+  approval: auto
+  writes: write-local
+  reversibility: reversible
+  residency: operator-private
+purpose: "Python scripts that must also run on Windows build agents, checked by a script — pinned machine paths and locale-codec I/O read from the code, and a relocated run under the cp949 locale with the original folder unreadable — so «works on Windows» rests on a run, not on reading"
+intents: ["will this script run on our Windows build agents?", "why does this crash on the Windows runner?", "make this script portable to Windows"]
+kind: activity

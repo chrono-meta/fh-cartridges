@@ -1,0 +1,1 @@
+Ideas came from Go's benchstat (statistics method), revfactory/harness-100 `29-performance-optimizer` (the benchmark-manager role) and ruff PLW1514 / pylint W1514 (the unspecified-encoding rule); no text or code from them is included.

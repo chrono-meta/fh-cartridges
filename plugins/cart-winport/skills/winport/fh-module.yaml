@@ -1,0 +1,19 @@
+# FH module manifest (contract v0). Spec: forge-harness knowledge/shared/harness-core/fh_module_contract.md
+# Windows portability of Python scripts: static read (pinned paths, locale codec) + relocated cp949 sandboxed run.
+id: cart-winport
+version: 0.1.0
+provides:
+  skills: [winport]
+  agents: []
+  hooks: []
+  verdicts: []   # winport_check.py is a check the skill routes through, not a verdict entry
+adds_constraints: []
+touches_irreversible: none
+data_class: private
+requires:
+  modules: []
+  core_min: 3.0.0
+calibration:
+  command: python3 plugins/cart-winport/scripts/test_winport_check.py
+files:
+  - plugins/cart-winport/scripts/winport_check.py

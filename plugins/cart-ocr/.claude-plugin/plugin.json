@@ -1,0 +1,1 @@
+{ "name": "cart-ocr", "version": "0.2.0", "description": "Document OCR (scans, photos, screenshots; Korean + English; tables, receipts, forms) with machine checks: sum-row verification, a calibrated second engine (Apple Vision), look-alike flags, PDF text-layer vs OCR routing, typed per-field status" }

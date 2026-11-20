@@ -1,0 +1,3 @@
+# Optional. Overrides any part of the default schema in scripts/canon_check.py — file locations, field names,
+# status words, the name pattern, and anchors (pairs of fields that must stay equal).
+anchors: []

@@ -1,0 +1,1 @@
+{ "name": "cart-winport", "version": "0.1.0", "description": "Windows portability of Python scripts (build agents, Korean-Windows cp949): pinned machine paths and locale-codec I/O read from the code, plus a relocated run under the cp949 locale with the original folder unreadable" }

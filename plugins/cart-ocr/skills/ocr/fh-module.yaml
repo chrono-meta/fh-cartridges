@@ -1,0 +1,25 @@
+# FH module manifest (contract v0). Spec: forge-harness knowledge/shared/harness-core/fh_module_contract.md
+# Document OCR: the model reads, scripts check (sum row, calibrated Apple Vision cross-read, look-alike characters, structure).
+id: cart-ocr
+version: 0.2.0
+provides:
+  skills: [ocr]
+  agents: []
+  hooks: []
+  verdicts: []   # ocr_check.py is a measurement engine (rc 0 can still carry UNCHECKED fields), not a verdict entry
+adds_constraints: []
+touches_irreversible: none
+data_class: private
+requires:
+  modules: []
+  core_min: 3.0.0
+calibration:
+  command: python3 plugins/cart-ocr/scripts/test_ocr_check.py
+files:
+  - plugins/cart-ocr/scripts/ocr_check.py
+  - plugins/cart-ocr/scripts/vision_ocr.swift
+  - plugins/cart-ocr/fixtures/calib.png
+  - plugins/cart-ocr/fixtures/calib.gt.txt
+  - plugins/cart-ocr/fixtures/pdf_text.pdf
+  - plugins/cart-ocr/fixtures/pdf_scan.pdf
+  - plugins/cart-ocr/fixtures/pdf_stale.pdf
