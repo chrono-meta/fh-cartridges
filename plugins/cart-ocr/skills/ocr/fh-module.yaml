@@ -19,6 +19,7 @@ files:
   - plugins/cart-ocr/scripts/ocr_check.py
   - plugins/cart-ocr/scripts/vision_ocr.swift
   - plugins/cart-ocr/fixtures/calib.png
+  - plugins/cart-ocr/scripts/test_console.py
   - plugins/cart-ocr/fixtures/calib.gt.txt
   - plugins/cart-ocr/fixtures/pdf_text.pdf
   - plugins/cart-ocr/fixtures/pdf_scan.pdf

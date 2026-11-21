@@ -164,6 +164,9 @@ class Lanes:
         rc8, out8 = self.run("check", self.put("ex.json", T))
         rcc, outc = self.run("check", self.put("ex.json", T), env=dict(os.environ, PYTHONIOENCODING="cp949"))
         self.lane("channel", "L6 cp949 console -> same rc as UTF-8, no crash", rcc == rc8 and "Traceback" not in outc)
+        pc = subprocess.run([PY, os.path.join(self.plugin, "scripts", "test_console.py")], capture_output=True, text=True,
+                            encoding="utf-8", timeout=300)
+        self.lane("channel", "U2-U4 console lanes: cp949 output bytes, main() backstop, closed stdout", pc.returncode == 0)
         # L7 calibration (live)
         rc0, out0 = self.run("engines")
         if "apple-vision OK" not in out0:
