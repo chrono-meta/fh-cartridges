@@ -486,7 +486,8 @@ def main(argv):
 def _console_safe():
     # Korean Windows writes cp949 by default, which cannot encode «—» and similar: the script stopped with rc 2 and
     # no verdict. Piped output (an agent, Git Bash, a lane) is read as UTF-8, so write UTF-8 there; an interactive
-    # console that is not UTF-8 gets the unencodable character replaced instead. Exit codes do not change.
+    # console that is not UTF-8 keeps its encoding, and main() prints an unencodable character as an escape.
+    # Exit codes do not change. Assumption, not checked: whoever reads the pipe decodes UTF-8.
     for s in (sys.stdout, sys.stderr):
         enc = (getattr(s, "encoding", None) or "").lower().replace("-", "").replace("_", "")
         if enc == "utf8" or not hasattr(s, "reconfigure"):
@@ -495,10 +496,13 @@ def _console_safe():
             tty = s.isatty()
         except (AttributeError, ValueError, OSError):
             tty = False
-        if tty:
-            s.reconfigure(errors="replace")
-        else:
-            s.reconfigure(encoding="utf-8")
+        try:
+            if tty:
+                s.reconfigure(errors="replace")
+            else:
+                s.reconfigure(encoding="utf-8", errors="backslashreplace")
+        except (AttributeError, ValueError, TypeError, OSError):
+            pass  # a closed or unusual stream: leave it; main()'s own guard is the backstop, never a crash
 
 
 if __name__ == "__main__":

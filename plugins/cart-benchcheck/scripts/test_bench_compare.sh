@@ -96,5 +96,8 @@ A=$(w a13 100.2 101.1 99.4 102.3 100.7 98.9 101.6 100.0 99.8 103.1); B=$(w b13 9
 out=$(PYTHONIOENCODING=cp949 python3 "$D" "$A" "$B" --unit µs 2>&1); rc=$?
 if [ $rc -eq 0 ] && first | grep -q '^VERDICT: FASTER ' && ! printf '%s\n' "$out" | grep -q 'HARNESS-ERROR'; then ok "B13 cp949 console → the verdict still prints (rc 0)"; else bad "B13 rc=$rc"; fi
 
+out=$(python3 "$HERE/test_console.py" 2>&1); rc=$?
+[ $rc -eq 0 ] && ok "U2-U4 console lanes: cp949 output bytes, main() backstop, closed stdout" || bad "U2-U4 rc=$rc"
+
 echo "bench_compare lanes: $pass passed, $fail failed"
 [ $fail -eq 0 ]

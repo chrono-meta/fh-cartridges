@@ -176,6 +176,13 @@ def main():
         print(f"{'✅' if ok else '❌'} {lane[0]} rc={rc}" + ("" if ok else "\n    " + out.strip().replace("\n", "\n    ")))
         passed += ok
         failed += not ok
+    pc = subprocess.run([sys.executable, os.path.join(HERE, "test_console.py")], capture_output=True, text=True,
+                        encoding="utf-8", timeout=300)
+    ok = pc.returncode == 0
+    print(f"{'✅' if ok else '❌'} U2-U4 console lanes (cp949 output bytes, main() backstop, closed stdout)"
+          + ("" if ok else "\n    " + pc.stdout.strip().replace("\n", "\n    ")))
+    passed += ok
+    failed += not ok
     print(f"winport lanes: {passed} passed, {failed} failed, {na} not applicable on this platform")
     return 1 if failed else 0
 

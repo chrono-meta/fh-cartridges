@@ -47,4 +47,7 @@ out=$(python3 "$C" "$W/f" 2>&1); rc=$?
 out=$(PYTHONIOENCODING=cp949 python3 "$C" "$FX" 2>&1); rc=$?
 [ $rc -eq 0 ] && ! printf '%s\n' "$out" | grep -q Traceback && ok "L11 cp949 console (Korean Windows, piped) → green fixture still rc 0, no crash" || bad "L11 rc=$rc"
 
+out=$(python3 "$HERE/test_console.py" 2>&1); rc=$?
+[ $rc -eq 0 ] && ok "U2-U4 console lanes: cp949 output bytes, main() backstop, closed stdout" || bad "U2-U4 rc=$rc"
+
 echo "lanes: $pass passed, $fail failed"; [ $fail -eq 0 ]

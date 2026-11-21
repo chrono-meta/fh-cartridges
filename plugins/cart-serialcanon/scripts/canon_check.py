@@ -492,7 +492,8 @@ def main(argv):
 
 
 def _console_safe():
-    # Same rule as the other cartridges: UTF-8 when piped, replace on a non-UTF-8 interactive console (Korean Windows).
+    # Same rule as the other cartridges: UTF-8 when piped (assumed to be read as UTF-8); a non-UTF-8 interactive
+    # console (Korean Windows) keeps its encoding and main() escapes what it cannot print.
     for s in (sys.stdout, sys.stderr):
         enc = (getattr(s, "encoding", None) or "").lower().replace("-", "").replace("_", "")
         if enc == "utf8" or not hasattr(s, "reconfigure"):
@@ -501,10 +502,13 @@ def _console_safe():
             tty = s.isatty()
         except (AttributeError, ValueError, OSError):
             tty = False
-        if tty:
-            s.reconfigure(errors="replace")
-        else:
-            s.reconfigure(encoding="utf-8")
+        try:
+            if tty:
+                s.reconfigure(errors="replace")
+            else:
+                s.reconfigure(encoding="utf-8", errors="backslashreplace")
+        except (AttributeError, ValueError, TypeError, OSError):
+            pass  # a closed or unusual stream: leave it; main()'s own guard is the backstop, never a crash
 
 
 if __name__ == "__main__":

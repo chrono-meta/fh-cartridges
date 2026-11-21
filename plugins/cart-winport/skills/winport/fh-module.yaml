@@ -17,3 +17,4 @@ calibration:
   command: python3 plugins/cart-winport/scripts/test_winport_check.py
 files:
   - plugins/cart-winport/scripts/winport_check.py
+  - plugins/cart-winport/scripts/test_console.py
