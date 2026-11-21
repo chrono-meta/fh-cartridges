@@ -57,7 +57,7 @@ class Lanes:
         self.skipped = []
 
     def run(self, *args, env=None, py=None):
-        p = subprocess.run((py or [PY]) + [self.script] + list(args), capture_output=True, text=True, env=env, timeout=300)
+        p = subprocess.run((py or [PY]) + [self.script] + list(args), capture_output=True, text=True, encoding="utf-8", env=env, timeout=300)
         return p.returncode, p.stdout + p.stderr
 
     def put(self, name, obj):
@@ -176,7 +176,7 @@ class Lanes:
             with open(os.path.join(bad_plugin, "fixtures", "calib.gt.txt"), "a", encoding="utf-8") as f:
                 f.write("THIS LINE IS NOT IN THE IMAGE 4711\n")
             p = subprocess.run([PY, os.path.join(bad_plugin, "scripts", "ocr_check.py"), "read",
-                                os.path.join(self.plugin, "fixtures", "calib.png")], capture_output=True, text=True, timeout=300)
+                                os.path.join(self.plugin, "fixtures", "calib.png")], capture_output=True, text=True, encoding="utf-8", timeout=300)
             self.lane("calibration", "L7- wrong known pair -> rc 2 failed calibration, no lines printed",
                       p.returncode == 2 and "failed calibration" in p.stdout and '"lines"' not in p.stdout)
         # L8 absent engine
@@ -259,4 +259,8 @@ def main():
 
 
 if __name__ == "__main__":
+    # same console rule as the scripts: UTF-8 when piped, replace on a non-UTF-8 interactive console (Korean Windows)
+    for _s in (sys.stdout, sys.stderr):
+        if (getattr(_s, "encoding", "") or "").lower().replace("-", "") != "utf8" and hasattr(_s, "reconfigure"):
+            _s.reconfigure(errors="replace") if _s.isatty() else _s.reconfigure(encoding="utf-8")
     sys.exit(main())
